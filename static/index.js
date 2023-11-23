@@ -4,6 +4,7 @@ var darkTheme = new Theme(document.getElementById("default-theme"), "Abyss (Moon
 tHs.addTheme(darkTheme);
 tHs.setActiveTheme(darkTheme);
 
+
 let workerLoaded;
 
 async function worker() {
@@ -316,7 +317,7 @@ const runService = async (url) => {
           document.getElementById("adrbar").placeholder = defaultPlaceholder;
           return;
         case "games":
-          runService("https://abyss-games.github.io");
+          runService("https://radon.games/");
           return;
         case "settings":
           const settingsPlaceholder = "Abyss Settings (abyss://settings)";
