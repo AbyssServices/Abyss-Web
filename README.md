@@ -7,7 +7,6 @@ Install the following software for your machine if you haven't already.
 
 ```
 Node 18+
-NPM
 Git
 ```
 
