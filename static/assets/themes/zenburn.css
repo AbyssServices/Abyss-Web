@@ -1,0 +1,378 @@
+:root, * {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    --inactive-elem: #353535;
+    --active-elem: #4E4E4E;
+    --background: #272727;
+    --color: #fff;
+    --img-filter: invert(0);
+}
+
+img {
+    filter: var(--img-filter);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--color);
+    background: var(--background);
+    font-weight: lighter;
+}
+
+.mainStartContain {
+    width: 83.3333333333%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    white-space: nowrap;
+    user-select: none;
+    background: var(--background);
+    z-index: -100;
+}
+
+.tabFrame {
+    background: var(--inactive-elem);
+}
+
+#tabsBar {
+    position: absolute;
+    top: 13px;
+    width: calc(100% - 21px);
+    height: 58px;
+    overflow: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-left: 21px;
+    white-space: nowrap;
+    user-select: none;
+}
+
+#tabsBar::-webkit-scrollbar {
+    display: none;
+}
+
+.tabBtn {
+    height: 57px;
+    width: 300px;
+    text-align: left;
+    outline: none;
+    border: none;
+    background: var(--inactive-elem);
+    color: var(--color);
+    cursor: pointer;
+    border-radius: 12px;
+    display: inline-block;
+    margin-right: 16px;
+    transition: 0.2s;
+    top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.tabBtn:hover {
+    background: var(--active-elem) !important;
+}
+
+.op-tabs-active,
+.active {
+    background: var(--active-elem) !important;
+}
+
+.tabBtn .tabTitle {
+    font-size: 24px;
+    margin-left: 10px;
+    display: inline-block;
+    width: 240px;
+    position: relative;
+    top: 5px;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tabBtn .tabClose {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    font-size: 50px;
+    font-weight: 500;
+    rotate: 45deg;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    top: 30%;
+    transform: translateY(-50%);
+    right: 4%;
+    /* it looks nice and while css has it's quirks it's exact */
+}
+
+
+.mainStartContain {
+    width: 83vw;
+    height: 90%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--inactive-elem);
+    border-radius: 5px;
+}
+
+.imageContain {
+    position: relative;
+    left: 45%;
+    transform: translateX(-50%);
+}
+
+.imageContain div {
+    display: inline-block;
+    position: relative;
+    top: -100px;
+}
+
+.imageContain div h1 {
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 0.2;
+    position: relative;
+    top: -110px;
+}
+
+.imageContain div i {
+    font-size: 32px;
+    position: relative;
+    top: -100px;
+    font-weight: 300;
+}
+
+#toolsBar {
+    position: absolute;
+    z-index: 10;
+    top: 86px;
+    left: 0;
+    width: calc(100% - 21px);
+    height: 57px;
+    overflow: hidden;
+    padding-left: 21px;
+    white-space: nowrap;
+    user-select: none;
+}
+
+#arrowLeftContain,
+#arrowRightContain {
+    margin-right: 12px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#toolsBar * {
+    display: inline-block;
+    position: relative;
+    height: 57px;
+    width: 36px;
+    object-fit: contain;
+}
+
+#adrbar {
+    width: calc(100% - 60px);
+    height: 57px;
+    background: var(--inactive-elem);
+    border-radius: 12px 0 0 12px;
+    font-size: 24px;
+    color: var(--color);
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    position: relative;
+    top: -20px;
+}
+
+#reloadBtn {
+    width: 57px;
+    height: 57px;
+    background: var(--inactive-elem);
+    border-radius: 0 12px 12px 0;
+    font-size: 24px;
+    color: var(--color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#reloadBtn:hover {
+    background: var(--active-elem);
+}
+
+#rightBtnGroup {
+    position: absolute;
+    right: 270px;
+}
+
+#rightToolGroup {
+    width: 230px;
+    height: 57px;
+    background: var(--inactive-elem);
+    border-radius: 12px 0 0 12px;
+    font-size: 0px;
+    /* why does inline-block add a space? */
+    color: var(--color);
+    outline: none;
+    border: none;
+    overflow: hidden;
+}
+
+#rightToolGroup button {
+    display: inline-block;
+    width: 57.5px;
+    height: 57px;
+    background: var(--inactive-elem);
+    color: var(--color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#toolsBar button img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+}
+
+#rightToolGroup button:hover {
+    background: var(--active-elem);
+}
+
+#panicBtn {
+    width: 57px;
+    height: 57px;
+    background: var(--inactive-elem);
+    border-radius: 0 12px 12px 0;
+    font-size: 24px;
+    color: var(--color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#panicBtn:hover {
+    background: var(--active-elem);
+}
+
+#searchBar {
+    width: calc(100% - 448px);
+    display: inline-block;
+}
+
+#contextBar {
+    position: absolute;
+    z-index: -10;
+    top: 158px;
+    left: 0;
+    width: 100%;
+    height: 13px;
+    background: var(--inactive-elem);
+}
+
+#tabContainer {
+    position: fixed;
+    z-index: 10;
+    top: 158px;
+    left: 0;
+    height: calc(100vh - 158px);
+    width: 100%;
+}
+
+#tabTemplate {
+    width: 100%;
+    height: 100%;
+}
+
+.abyssCard {
+    height: 400px;
+    width: 300px;
+    min-width: 300px;
+    padding: 20px;
+    background: var(--inactive-elem);
+    border-radius: 13px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.abyssCard input,
+.abyssCard select,
+.abyssCard button {
+    width: 280px;
+    height: 57px;
+    background: var(--background);
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    font-size: 24px;
+    color: var(--color);
+    transition: 0.2s;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.abyssCard button:hover {
+    cursor: pointer;
+    background: var(--active-elem);
+}
+
+.abyssCard h1 {
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 30px;
+    white-space: nowrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 0.7;
+    font-size: 32px;
+}
+
+.settingCards {
+    display: flex;
+    justify-content: safe center;
+    align-items: center;
+    row-gap: 50px;
+    column-gap: 50px;
+    flex-wrap: wrap;
+    /* height: calc(100vh - 400px); */
+    overflow-y: auto;
+}
+
+.settingsHeader {
+    font-size: 64px;
+    font-weight: 400;
+}
+
+.extFrame {
+    overflow: auto;
+}
+
+iframe {
+    z-index: 100;
+    width: 100%;
+    height: calc(100vh - 158px);
+    border: none;
+    background: var(--background);
+    position: fixed;
+    top: 158px;
+    left: 0;
+}

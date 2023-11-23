@@ -1,0 +1,70 @@
+[
+    {
+        "name": "Abyss (Sun)",
+        "url": "/assets/themes/sun.css"
+    },
+    {
+        "name": "[ANI] Ocean",
+        "url": "/assets/themes/ocean.css"
+    },
+    {
+        "name": "Dracula",
+        "url": "/assets/themes/dracula.css"
+    },
+    {
+        "name": "Solarized Light",
+        "url": "/assets/themes/solarized-light.css"
+    },
+    {
+        "name": "Solarized Dark",
+        "url": "/assets/themes/solarized-dark.css"
+    },
+    {
+        "name": "Monokai",
+        "url": "/assets/themes/monokai.css"
+    },
+    {
+        "name": "Tomorrow Night",
+        "url": "/assets/themes/tomorrow-night.css"
+    },
+    {
+        "name": "Tomorrow Night Blue",
+        "url": "/assets/themes/tomorrow-night-blue.css"
+    },
+    {
+        "name": "Tomorrow Night Bright",
+        "url": "/assets/themes/tomorrow-night-bright.css"
+    },
+    {
+        "name": "Tomorrow Night Eighties",
+        "url": "/assets/themes/tomorrow-night-eighties.css"
+    },
+    {
+        "name": "Tomorrow",
+        "url": "/assets/themes/tomorrow.css"
+    },
+    {
+        "name": "Vibrant Ink",
+        "url": "/assets/themes/vibrant-ink.css"
+    },
+    {
+        "name": "Xcode (Classic Dark)",
+        "url": "/assets/themes/xcode-dark.css"
+    },
+    {
+        "name": "Xcode (Classic Light)",
+        "url": "/assets/themes/xcode-light.css"
+    },
+    {
+        "name": "Zenburn",
+        "url": "/assets/themes/zenburn.css"
+    },
+    {
+        "name": "Azul (Dark)",
+        "url": "/assets/themes/azul-dark.css"
+    },
+    {
+        "name": "Azul (Light)",
+        "url": "/assets/themes/azul-light.css"
+    }
+]
