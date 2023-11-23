@@ -50,11 +50,14 @@ switch (chosenBackend) {
     break;
 }
 
+var themeSelected = localStorage.getItem("theme") || "Abyss (Moon)";
+
 function themeSwitch(sel) {
   tHs.setActiveTheme(tHs.getThemeFromName(sel.value));
   document.querySelectorAll("select").forEach((e) => {
     e.value = sel.value;
   });
+  localStorage.setItem("theme", sel.value);
 }
 
 function log() {
@@ -341,7 +344,9 @@ const runService = async (url) => {
               e.classList.remove("active");
             });
             settingsTemplate.querySelector("." + chosenBackend).classList.add("active");
-            settingsTemplate.querySelector(".panic").placeholder = "Selected Panic Keys: " + window.panicKeys.join(" + ");
+            if (window.panicKeys !== null) {
+              settingsTemplate.querySelector(".panic").placeholder = "Selected Panic Keys: " + window.panicKeys.join(" + ");
+            }
             settingsTemplate.querySelector(".panicURL").value = window.panicURL;
             settingsTemplate.querySelector(".tabTitle").placeholder = localStorage.getItem("title") || "Abyss";
             settingsTemplate.querySelector(".tabIcon").placeholder = localStorage.getItem("favicon") || "Default Favicon";
@@ -574,6 +579,9 @@ function getThemes() {
         );
         tHs.addTheme(new Theme(themeURL, themeName));
         addDropElem(themeName);
+      }
+      if (localStorage.getItem("theme") != null &&  tHs.getThemeFromName(localStorage.getItem("theme"))) {
+        tHs.setActiveTheme(tHs.getThemeFromName(localStorage.getItem("theme")));
       }
     });
 }
