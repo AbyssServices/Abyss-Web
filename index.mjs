@@ -8,6 +8,8 @@ import { hostname } from "node:os";
 import { fileURLToPath } from "url";
 import compression from 'compression';
 import chalk from 'chalk';
+import 'dotenv/config'
+
 
 let port = parseInt(process.env.PORT || "");
 
