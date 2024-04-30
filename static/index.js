@@ -667,12 +667,12 @@ setInterval(() => {
   if (localStorage.getItem("backend") == 'uv' ||  localStorage.getItem("backend") == null ) {
     var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/math/") + "/classes/math/".length);
     document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
+    activeTab.getConnectedElement().querySelector("#tabFavicon").src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + decodeUrl(extractedPart) + "&size=128";
   } else if (localStorage.getItem("backend") == 'dynamic') {
     var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/english/") + "/classes/english/".length);
     document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
+    activeTab.getConnectedElement().querySelector("#tabFavicon").src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + decodeUrl(extractedPart) + "&size=128";
   }
-  var faviconUrl = (activeTab.findFirstIFrame()?.contentDocument?.querySelector('link[rel="icon"], link[rel="shortcut icon"]')?.href) || 'assets/globe.png';
-  activeTab.getConnectedElement().querySelector("#tabFavicon").src = faviconUrl;
   }, 100);
 // setInterval(() => {
 //   window.location.reload();
