@@ -671,7 +671,6 @@ setInterval(() => {
     var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/english/") + "/classes/english/".length);
     document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
   }
-  getTabFavicon();
 }, 100);
 // setInterval(() => {
 //   window.location.reload();
@@ -974,21 +973,18 @@ function resetTab() {
 }
 
 function bookmark() {
+  if (localStorage.getItem("backend") == 'uv' ||  localStorage.getItem("backend") == null ) {
+    var url = "/classes/math/" + __uv$config.encodeUrl(document.getElementById('adrbar').placeholder);
+  } else if (localStorage.getItem("backend") == 'dynamic') {
+    var url =  "/classes/english/" + encodeURIComponent(document.getElementById('adrbar').placeholder);
+  }
   if (ts.getActiveTab() != null) {
     if (ts.getActiveTab().findFirstIFrame() != null) {
       var bookmark = [
         ts.genRanId(),
         ts.getActiveTab().findFirstIFrame().contentDocument.title ||
-        ts
-          .getActiveTab()
-          .findFirstIFrame()
-          .src.toString()
-          .replace(/(.+url=https%3A%2F%2F|.+continue=https:\/\/)/, "")
-          .replace(/(%2F|\/).*/, ""),
-        ts
-          .getActiveTab()
-          .findFirstIFrame()
-          .src.toString()
+        url,
+        url
       ];
       bookmarks.push(bookmark);
       addBookmark(bookmark);
