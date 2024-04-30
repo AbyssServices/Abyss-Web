@@ -553,6 +553,7 @@ const runService = async (url, override, overrideadrbar) => {
             activeTab.getConnectedElement().querySelector("span").innerText =
               "Settings";
             document.getElementById("adrbar").placeholder = settingsPlaceholder;
+            document.getElementById("tabFavicon").src = "assets/cog.png"
           }
           return;
         case "about":
@@ -674,9 +675,6 @@ setInterval(() => {
     activeTab.getConnectedElement().querySelector("#tabFavicon").src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + decodeUrl(extractedPart) + "&size=128";
   }
   }, 100);
-// setInterval(() => {
-//   window.location.reload();
-// }, 1000);
 
 
 const ts = new TabSystem({
