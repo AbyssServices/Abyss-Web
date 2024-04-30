@@ -471,8 +471,9 @@ const openNewtab = () => {
 
 
 const runService = async (url, override, overrideadrbar) => {
+  console.log(url);
   if (url.trim() == "") return;
-  if (ts.getActiveTab() == null) {
+  if (ts.getActiveTab() == null || url == "abyss://settings" || url == "abyss:settings") {
     openNewtab();
   }
   const activeTab = ts.getActiveTab();
@@ -553,7 +554,7 @@ const runService = async (url, override, overrideadrbar) => {
             activeTab.getConnectedElement().querySelector("span").innerText =
               "Settings";
             document.getElementById("adrbar").placeholder = settingsPlaceholder;
-            document.getElementById("tabFavicon").src = "assets/cog.png"
+            activeTab.getConnectedElement().querySelector("#tabFavicon").src = "assets/cog.png"
           }
           return;
         case "about":
