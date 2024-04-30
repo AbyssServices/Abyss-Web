@@ -288,7 +288,7 @@ html {
 }
 #rightBtnGroup {
   position: relative;
-  left: 30px;
+  left: 20px;
 }
 
 #rightToolGroup {
@@ -344,8 +344,8 @@ html {
 }
 
 #searchBar {
-  margin-left: 5px;
-  width: calc(100% - 355px);
+  margin-left: 20px;
+  width: calc(100% - 347px);
   display: flex;
 }
 
