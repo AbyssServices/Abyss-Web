@@ -643,6 +643,19 @@ const runService = async (url, override, overrideadrbar) => {
     }
   }
 };
+function decodeUrl(str) {
+  if (!str) return str;
+  let [input, ...search] = str.split('?');
+
+  return (
+      decodeURIComponent(input)
+          .split('')
+          .map((char, ind) =>
+              ind % 2 ? String.fromCharCode(char.charCodeAt(0) ^ 2) : char
+          )
+          .join('') + (search.length ? '?' + search.join('?') : '')
+  );
+}
 
 setInterval(() => {
   const activeTab = ts.getActiveTab();
@@ -651,6 +664,14 @@ setInterval(() => {
   if (getTabTitle() == "http:") return;
   activeTab.getConnectedElement().querySelector("span").innerText =
     getTabTitle() || "Website";
+  if (localStorage.getItem("backend") == 'uv' ||  localStorage.getItem("backend") == null ) {
+    var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/math/") + "/classes/math/".length);
+    document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
+  } else if (localStorage.getItem("backend") == 'dynamic') {
+    var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/english/") + "/classes/english/".length);
+    document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
+  }
+  getTabFavicon();
 }, 100);
 // setInterval(() => {
 //   window.location.reload();
@@ -837,7 +858,6 @@ function getTabTitle() {
     .replace(/(.+url=https%3A%2F%2F|.+continue=https:\/\/)/, "")
     .replace(/(%2F|\/).*/, "");
 }
-
 var bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
 function removeBookmark(bookmark) {
