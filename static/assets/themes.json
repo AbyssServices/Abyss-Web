@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Sun",
+        "url": "/assets/themes/sun.css"
+    },
+    {
+        "name": "Blue",
+        "url": "/assets/themes/blue-moon.css"
+    },
+    {
+        "name": "Red",
+        "url": "/assets/themes/blood-moon.css"
+    },
+    {
+        "name": "Green",
+        "url": "/assets/themes/green.css"
+    },
+    {
+        "name": "Orange",
+        "url": "/assets/themes/orange.css"
+    },
+    {
+        "name": "Purple",
+        "url": "/assets/themes/purple.css"
+    }
+]
