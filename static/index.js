@@ -257,8 +257,8 @@ document.getElementById("adrbar").addEventListener("blur", function () {
 
 setInterval(() => {
   if (suggestionsList.querySelector('div') && suggestionsList.style.display == 'flex') {
-    searchInput.style.borderTopLeftRadius = "12px";
-    searchInput.style.borderTopRightRadius = "12px";
+    searchInput.style.borderBottomLeftRadius = "0px";
+    searchInput.style.borderBottomRightRadius = "0px";
   }
 }, 300);
 searchInput.addEventListener('input', function() {
