@@ -257,7 +257,12 @@ document.getElementById("adrbar").addEventListener("blur", function () {
   }, 300); // unnoticeable delay, just so that the form handles clicks before it dissapears
 });
 
-
+setInterval(() => {
+  if (suggestionsList.querySelector('div') && suggestionsList.style.display == 'flex') {
+    searchInput.style.borderTopLeftRadius = "12px";
+    searchInput.style.borderTopRightRadius = "12px";
+  }
+}, 300);
 searchInput.addEventListener('input', function() {
   const query = searchInput.value.trim(); // Use searchInput directly
   if (query === '') {
@@ -288,7 +293,7 @@ function showSuggestions(suggestions) {
 // Handle click on suggestion
 suggestionsList.addEventListener('click', function(event) {
   if (event.target.tagName === 'DIV') {
-    searchInput.value = event.target.textContent;
+    runService(event.target.textContent);
     suggestionsList.innerHTML = '';
   }
 });
