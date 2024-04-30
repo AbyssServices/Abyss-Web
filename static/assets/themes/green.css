@@ -126,9 +126,6 @@ html {
     transition: 0.2s;
   }
   
-  #leftTopBtns button:hover {
-    background: var(--active-elem);
-  }
   
   #tabsBar::-webkit-scrollbar {
     display: none;
