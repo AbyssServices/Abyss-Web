@@ -246,8 +246,6 @@ const searchInput = document.getElementById('adrbar');
 const suggestionsList = document.getElementById('suggestions');
 document.getElementById("adrbar").addEventListener("focus", function () {
   suggestionsList.style.display = 'flex';
-  searchInput.style.borderBottomLeftRadius = "0px";
-  searchInput.style.borderBottomRightRadius = "0px";
 });
 document.getElementById("adrbar").addEventListener("blur", function () {
   setTimeout(function() {
