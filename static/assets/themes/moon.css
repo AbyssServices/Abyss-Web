@@ -164,11 +164,18 @@ html {
   position: absolute;
 }
 
+#tabFavicon {
+  left: 10px;
+  top: 7px;
+  height: 70%;
+  position: absolute;
+}
+
 .tabBtn .tabTitle {
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 45px;
   display: inline-block;
-  width: 170px;
+  width: 150px;
   position: relative;
   top: 14px;
   transform: translateY(-50%);
@@ -187,7 +194,7 @@ html {
   font-family: "Encode Sans Condensed", sans-serif;
   top: 42%;
   transform: translateY(-50%);
-  right: 4%; /* it looks nice and while css has it's quirks it's exact */
+  right: 10%; /* it looks nice and while css has it's quirks it's exact */
 }
 
 .mainStartContain {

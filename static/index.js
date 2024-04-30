@@ -671,7 +671,9 @@ setInterval(() => {
     var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/english/") + "/classes/english/".length);
     document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
   }
-}, 100);
+  var faviconUrl = (activeTab.findFirstIFrame()?.contentDocument?.querySelector('link[rel="icon"], link[rel="shortcut icon"]')?.href) || 'assets/globe.png';
+  activeTab.getConnectedElement().querySelector("#tabFavicon").src = faviconUrl;
+  }, 100);
 // setInterval(() => {
 //   window.location.reload();
 // }, 1000);
