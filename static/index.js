@@ -968,6 +968,12 @@ function tabSwitch(parse) {
     } else if (parse.value == 'Drive') {
       cloakTitle('Home - Google Drive');
       cloakFavicon('https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png');
+    } else if (parse.value == 'iXL') {
+      cloakTitle('IXL');
+      cloakFavicon('https://www.ixl.com/favicon.ico');
+    } else if (parse.value == 'Khan') {
+      cloakTitle('Khan Academy | Free Online Courses');
+      cloakFavicon('https://www.khanacademy.org/favicon.ico');
     } 
 }
 
