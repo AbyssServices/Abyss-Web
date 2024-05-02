@@ -848,7 +848,7 @@ function removeBookmark(bookmark) {
     }
   }
   if (bookmarks.length <= 0) {
-    document.getElementById("tabContainer").style.height = "calc(100vh - 130px)";
+    document.getElementById("tabContainer").style.height = "calc(100vh - 128px)";
     document.getElementById("headerArea").style.height = "125px";
   }
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -868,7 +868,7 @@ function addBookmark(bookmark) {
   bookmarkEl.id = bookmark[0];
   document.getElementById("bookmarksBar").appendChild(bookmarkEl);
   if (bookmarks.length > 0) {
-    document.getElementById("tabContainer").style.height = "calc(100% - 165.5px)";
+    document.getElementById("tabContainer").style.height = "calc(100% - 163.5px)";
     document.getElementById("headerArea").style.height = "160px";
   }
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -977,7 +977,7 @@ if (bookmarks.length > 0) {
   bookmarks.forEach((bookmark) => {
     addBookmark(bookmark);
   });
-  document.getElementById("tabContainer").style.height = "calc(100% - 165.5px)";
+  document.getElementById("tabContainer").style.height = "calc(100% - 163.5px)";
   document.getElementById("headerArea").style.height = "160px";
 }
 try {

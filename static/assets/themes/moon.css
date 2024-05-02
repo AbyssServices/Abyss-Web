@@ -379,7 +379,7 @@ html {
   z-index: 10;
   bottom: 0;
   left: 0;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 128px);
   width: 100%;
 }
 
