@@ -449,7 +449,14 @@ const openNewtab = () => {
   ts.setActiveTab(ts.addTab(new Tab()));
 };
 
-
+let splashtext = [
+  "check out discord.gg/goabyss",
+  "made by paxton warin",
+  "want your own link? check out discord.gg/goabyss",
+  "thanks for using the site!",
+  "check out the settings page",
+  "check out the games page",
+]
 
 const runService = async (url, override, overrideadrbar) => {
   if (url.trim() == "") return;
@@ -492,6 +499,7 @@ const runService = async (url, override, overrideadrbar) => {
           activeTab.getConnectedElement().querySelector("span").innerText =
             "New Tab";
           document.getElementById("adrbar").placeholder = defaultPlaceholder;
+          
           return;
         case "apps":
           const appsPlaceholder = "abyss apps (abyss://apps)";
@@ -684,6 +692,7 @@ const ts = new TabSystem({
 
 const createNewTab = () => {
   ts.setActiveTab(ts.addTab(new Tab()));
+  ts.activeTab.getTabElement().querySelector("#quote").innerText = splashtext[Math.floor(Math.random() * splashtext.length)]
 };
 
 createNewTab();
@@ -871,7 +880,7 @@ function removeBookmark(bookmark) {
     }
   }
   if (bookmarks.length <= 0) {
-    document.getElementById("tabContainer").style.height = "calc(100vh - 128px)";
+    document.getElementById("tabContainer").style.height = "calc(100vh - 110px)";
     document.getElementById("headerArea").style.height = "125px";
   }
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -891,7 +900,7 @@ function addBookmark(bookmark) {
   bookmarkEl.id = bookmark[0];
   document.getElementById("bookmarksBar").appendChild(bookmarkEl);
   if (bookmarks.length > 0) {
-    document.getElementById("tabContainer").style.height = "calc(100% - 163.5px)";
+    document.getElementById("tabContainer").style.height = "calc(100% - 145.5px)";
     document.getElementById("headerArea").style.height = "160px";
   }
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -1000,7 +1009,7 @@ if (bookmarks.length > 0) {
   bookmarks.forEach((bookmark) => {
     addBookmark(bookmark);
   });
-  document.getElementById("tabContainer").style.height = "calc(100% - 163.5px)";
+  document.getElementById("tabContainer").style.height = "calc(100% - 145.5px)";
   document.getElementById("headerArea").style.height = "160px";
 }
 try {

@@ -222,16 +222,22 @@ html {
 .imageContain div h1 {
   font-size: 65px;
   font-weight: 700;
-  position: relative;
-  left: 10%;
+  position: absolute;
+  left: 50%;
+  top: -160px;
+  transform: translateX(-50%);
   height: 35px;
 }
 
 .imageContain div p {
   font-size: 25px;
-  position: relative;
   font-weight: 500;
+  top: -65px;
   height: 18px;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  font-style:italic;
 }
 
 #toolsBar {
@@ -379,7 +385,7 @@ html {
   z-index: 10;
   bottom: 0;
   left: 0;
-  height: calc(100vh - 128px);
+  height: calc(100vh - 110px);
   width: 100%;
 }
 
