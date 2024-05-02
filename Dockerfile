@@ -1,6 +1,12 @@
-FROM node:20.4-bookworm-slim
-WORKDIR /usr/src/app
-COPY . .
+FROM node:bookworm-slim
+ENV NODE_ENV=production
+
+WORKDIR /app
+
+COPY ["package.json", "./"]
+
 RUN npm install
-EXPOSE 8080
-CMD ["npm", "start"]
+
+COPY . .
+
+CMD [ "node", "index.js" ]
