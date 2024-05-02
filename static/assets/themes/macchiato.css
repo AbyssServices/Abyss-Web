@@ -306,6 +306,8 @@ html {
   font-family: 'Roboto', sans-serif;
   border: 2px solid white;
   transition: border-radius 0.3s;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 
 #adrbar2:focus {
