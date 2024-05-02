@@ -25,8 +25,3 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-async function worker() {
-  return await navigator.serviceWorker.register("/sw.js", {
-    scope: "/classes",
-  });
-}

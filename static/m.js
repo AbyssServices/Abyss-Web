@@ -9,3 +9,9 @@ function go(url) {
     }
     window.location.href = '/classes/math/' + __uv$config.encodeUrl(url);
 }
+
+async function worker() {
+    return await navigator.serviceWorker.register("/sw.js", {
+      scope: "/classes",
+    });
+  }
