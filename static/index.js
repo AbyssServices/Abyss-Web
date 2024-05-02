@@ -1,9 +1,5 @@
-function checkMobile() {
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (isMobile) {
-    return false;
-}
-}
+
 window.tHs = new ThemeSystem();
 
 var darkTheme = new Theme(document.getElementById("default-theme"), "Moon"); // I do not have programming ineptitude, it's just that this works and I don't really care to change it from the older version of the theme system.
@@ -699,7 +695,7 @@ const ts = new TabSystem({
 
 const createNewTab = () => {
   ts.setActiveTab(ts.addTab(new Tab()));
-  ts.activeTab.getTabElement().querySelector("#invite").innerText = checkMobile();/*splashtext[Math.floor(Math.random() * splashtext.length)]*/
+  ts.activeTab.getTabElement().querySelector("#invite").innerText = isMobile;/*splashtext[Math.floor(Math.random() * splashtext.length)]*/
 };
 
 createNewTab();
