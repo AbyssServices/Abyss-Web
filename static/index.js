@@ -1,4 +1,4 @@
-console.log(navigator.userAgentData.mobile);
+const Agent = navigator.userAgentData.mobile;
 window.tHs = new ThemeSystem();
 
 var darkTheme = new Theme(document.getElementById("default-theme"), "Moon"); // I do not have programming ineptitude, it's just that this works and I don't really care to change it from the older version of the theme system.
@@ -694,7 +694,7 @@ const ts = new TabSystem({
 
 const createNewTab = () => {
   ts.setActiveTab(ts.addTab(new Tab()));
-  ts.activeTab.getTabElement().querySelector("#quote").innerText = splashtext[Math.floor(Math.random() * splashtext.length)]
+  ts.activeTab.getTabElement().querySelector("#quote").innerText = Agent;/*splashtext[Math.floor(Math.random() * splashtext.length)]*/
 };
 
 createNewTab();
