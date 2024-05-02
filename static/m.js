@@ -15,3 +15,8 @@ async function worker() {
       scope: "/classes",
     });
   }
+
+  document.addEventListener("DOMContentLoaded", async function () {
+    await worker();
+    workerLoaded = true;
+  });
