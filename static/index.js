@@ -694,7 +694,7 @@ const ts = new TabSystem({
 
 const createNewTab = () => {
   ts.setActiveTab(ts.addTab(new Tab()));
-  ts.activeTab.getTabElement().querySelector("#quote").innerText = Agent;/*splashtext[Math.floor(Math.random() * splashtext.length)]*/
+  ts.activeTab.getTabElement().querySelector("#quote").innerText = `${Agent}`;/*splashtext[Math.floor(Math.random() * splashtext.length)]*/
 };
 
 createNewTab();
