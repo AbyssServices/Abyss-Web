@@ -20,3 +20,4 @@ async function worker() {
     await worker();
     workerLoaded = true;
   });
+  
