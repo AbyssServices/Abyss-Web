@@ -1,7 +1,7 @@
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 if (isMobile) {
-  window.location.href("m.html")
+  window.location.href = "m.html";
 }
 
 window.tHs = new ThemeSystem();
