@@ -35,7 +35,7 @@ if (chosenParticleState === "on") {
 function particleSelect(param) {
   if (param == 'choose...') {return;}
   localStorage.setItem("particleState", param);
-  chosenAdState = param;
+  chosenParticleState = param;
 
 }
 
