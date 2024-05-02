@@ -510,7 +510,7 @@ html {
   display: flex;
   justify-content: safe center;
   align-items: center;
-  row-gap: 150px;
+  row-gap: 50px;
   column-gap: 50px;
   flex-wrap: wrap;
   /* height: calc(100vh - 400px); */
