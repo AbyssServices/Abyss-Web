@@ -1,0 +1,616 @@
+:root,
+* {
+  font-family: "Inter", sans-serif;
+  --highlight-color: #FFF;
+  --background-color: #1f1f1f;
+  --active-elem: #636363;
+  --color: #fefefe;
+  --img-filter: invert(0);
+  --ext-frame-bg: #272727e0;
+}
+
+img {
+  filter: var(--img-filter);
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--color);
+  background-color: var(--background-color);
+  background-size: cover;
+  resize: none;
+}
+
+.mainStartContain {
+  width: 83.3333333333%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  white-space: nowrap;
+  user-select: none;
+  z-index: -100;
+}
+
+#headerArea {
+  overflow: visible;
+  width: 100%;
+  border-bottom: 2px solid white;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  height: 125px;
+}
+
+.bookmark {
+  display: inline;
+  font-size: 22px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.bookmarkClose {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 28px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+#bookmarksBar {
+  display: inline-block;
+  padding-left: 15px;
+  position: relative;
+  bottom: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+#bookmarksBar:last-child .bookmarkClose {
+  margin-right: 30px;
+}
+
+.tabFrame {
+  background: var(--background-color);
+}
+
+#tabsBar {
+  position: relative;
+  top: -35px;
+  width: calc(100% - 145px);
+  left: 95px;
+  height: 45px;
+  overflow: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-left: 16px;
+  white-space: nowrap;
+  user-select: none;
+  border-radius: 10px;
+}
+
+#leftTopBtns {
+  position: relative;
+  top: 10px;
+  left: 7px;
+  width: 95px;
+  height: 45px;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  background: var(--background-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+#leftTopBtns button {
+  margin-top: 5px;
+  margin-left: 1px;
+  height: 45px;
+  width: 45px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+
+}
+
+#tabsBar::-webkit-scrollbar {
+  display: none;
+}
+
+.tabBtn {
+  height: 45px;
+  width: 300px;
+  text-align: left;
+  outline: none;
+  border: none;
+  background: var(--background-color);
+  color: var(--color);
+  cursor: pointer;
+  border-radius: 10px;
+  display: inline-block;
+  margin-right: 16px;
+  transition: 0.2s;
+  top: 0;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid white;
+}
+
+.tabBtn:hover {
+  background: var(--background-color) !important;
+  color: #fff;
+}
+
+.op-tabs-active,
+.active {
+  background: var(--highlight-color) !important;
+  color: #000;
+}
+
+#autofill-results {
+  position: absolute;
+}
+
+.tabBtn .tabTitle {
+  font-size: 20px;
+  margin-left: 45px;
+  display: inline-block;
+  width: 150px;
+  position: relative;
+  top: 12px;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Roboto", sans-serif;
+}
+
+.tabBtn .tabClose {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  font-size: 35px;
+  font-weight: 500;
+  rotate: 45deg;
+  font-family: "Encode Sans Condensed", sans-serif;
+  top: 42%;
+  transform: translateY(-50%);
+  right: 10%; /* it looks nice and while css has it's quirks it's exact */
+}
+
+.mainStartContain {
+  width: 83vw;
+  height: 90%;
+  position: relative;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+
+.imageContain {
+  position: absolute;
+  /* position: fixed; */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  background: transparent;
+}
+
+.imageContain div {
+  display: inline-block;
+  position: relative;
+  /* position: fixed; */
+  top: -50px;
+  /* bottom: 100px; */
+}
+
+.imageContain div h1 {
+  font-size: 65px;
+  font-weight: 700;
+  position: relative;
+  left: 10%;
+  height: 35px;
+}
+
+.imageContain div p {
+  font-size: 25px;
+  position: relative;
+  font-weight: 500;
+  height: 18px;
+}
+
+#toolsBar {
+  overflow: visible;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 10;
+  top: -25px;
+  left: 0;
+  width: calc(100% - 21px);
+  height: 50px;
+  padding-left: 13.5px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+#arrowLeftContain,
+#arrowRightContain,
+#reloadBtn {
+  margin-right: 3px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#toolsBar * {
+  overflow: visible;
+  position: relative;
+  display: inline-block;
+  height: 48px;
+  width: 36px;
+  object-fit: contain;
+}
+
+#suggestions {
+  width: 100%;
+  flex-direction: column;
+  margin-top: 3rem;
+  position: absolute;
+}
+
+#adrbar {
+  width: 100%;
+  height: 42px;
+  background: var(--background-color);
+  border-radius: 38px;
+  font-size: 20px;
+  color: var(--color);
+  padding-left: 20px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid white;
+}
+#adrbar2 {
+  width: 75%;
+  height: 42px;
+  left: 5%;
+  background: var(--background-color);
+  border-radius: 38px;
+  padding-left: 30px;
+  font-size: 16px;
+  color: var(--color);
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid white;
+  transition: border-radius 0.3s;
+}
+
+#adrbar2:focus {
+  border-radius: 17px;
+
+}
+#rightBtnGroup {
+  position: relative;
+  left: 15px;
+}
+
+#rightToolGroup {
+  position: relative;
+  width: 112px;
+  height: 45px;
+  border-radius: 6px;
+  font-size: 0px; /* why does inline-block add a space? */
+  color: var(--color);
+  outline: none;
+  border: none;
+}
+
+#rightToolGroup button {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  color: var(--color);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#toolsBar button img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+}
+
+#panicBtn {
+  width: 56px;
+  height: 56px;
+  background: var(--background-color);
+  border-radius: 0 12px 12px 0;
+  font-size: 24px;
+  color: var(--color);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#panicBtn:hover {
+  background: var(--background-color);
+}
+
+#searchBar {
+  margin-left: 15px;
+  width: calc(100% - 382px);
+  display: flex;
+}
+#adrbar::placeholder {
+  color: #fff;
+}
+#adrbar2::placeholder {
+  color: #fff;
+}
+#tabContainer {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  height: calc(100vh - 130px);
+  width: 100%;
+}
+
+#tabTemplate {
+  width: 100%;
+  height: 100%;
+}
+
+.abyssCard {
+  height: 300px;
+  width: 550px;
+  min-width: 30px;
+  padding: 20px;
+  background: var(--background-color);
+  border-radius: 17px;
+  border: 2px solid white;
+}
+#appImgContainer {
+  display: flex;
+  position: absolute;
+  width: 290px;
+  height: 240px;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  overflow: hidden;
+  display: flex;
+  position: absolute;
+  margin: -20px 0 0 -20px;
+}
+#appImgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#appTitleContainer {
+  display: flex;
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  margin: 220px 0 0 -15px;
+  font-weight: 700;
+  font-size: 30px;
+  width: 280px;
+  height: 140px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#appTitle {
+  position: absolute;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+}
+.appCard {
+  height: 300px;
+  width: 250px;
+  min-width: 30px;
+  padding: 20px;
+  background: var(--background-color);
+  border-radius: 17px;
+  border: 2px solid white;
+}
+#settingContainer h2 {
+  margin: -40px 0 0 0;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+
+.settingContainer button:hover {
+  cursor: pointer;
+}
+
+#autoLaunchDiv {
+  height: 20%;
+  width: 20%;
+  
+}
+
+#settingContainer {
+  position: absolute;
+  width: 210px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#settingContainer button, #settingContainer input, #settingContainer select {
+  top: 50px;
+  width: 210px;
+  height: 40px;
+  background: var(--background-color);
+  border-radius: 38px;
+  outline: none;
+  border: 2px solid white;
+  font-size: 20px;
+  color: var(--color);
+  transition: 0.2s;
+  padding: 0 5px;
+  font-family: 'Roboto', sans-serif; font-weight: 700;
+  position: absolute;
+  left: 0px;
+  text-align: center;
+}
+
+#settingContainer input::placeholder {
+  color: #FFF;
+}
+
+.abyssCard h1 {
+  position: absolute;
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 0px;
+  white-space: nowrap;
+  line-height: 0.7;
+  font-size: 27px;
+}
+
+.settingCards {
+  display: flex;
+  justify-content: safe center;
+  align-items: center;
+  row-gap: 50px;
+  column-gap: 50px;
+  flex-wrap: wrap;
+  /* height: calc(100vh - 400px); */
+  overflow-y: auto;
+}
+
+#categorySelect {
+  position: absolute;
+  width: 200px;
+  height: 45px;
+  background-color: var(--background-color);
+  border-radius: 38px;
+  border: 2px solid white;
+  left: 50%;
+  transform: translateX(10%);
+  top: 157px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+#categorySearch {
+  position: absolute;
+  width: 200px;
+  height: 45px;
+  background-color: var(--background-color);
+  border-radius: 38px;
+  border: 2px solid white;
+  left: 50%;
+  transform: translateX(-110%);
+  top: 155px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+#categorySearch::placeholder {
+  color: #fff;
+}
+.settingsHeader {
+  font-size: 74px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+.appsHeader {
+  font-size: 64px;
+  font-weight: 400;
+}
+.extFrame {
+  overflow: auto;
+}
+
+iframe {
+  /* z-index: 100;
+    width: 100%;
+    height: calc(100vh - 175px);
+    border: none;
+    background: var(--background);
+    position:fixed;
+    bottom: 0;
+    left: 0; */
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--ext-frame-bg);
+  position: relative;
+}
+
+#suggestions div {
+  background: var(--background-color);
+  border: 1px solid white;
+  padding-left: 20px;
+  color: white;
+  height: 25px;
+  width: calc(100% - 20px);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#suggestions div:hover {
+  background: #fff;
+  color: #000;
+}
+#tabFaviconHolder {
+  left: 10px;
+  top: 7px;
+  height: 70%;
+  position: absolute;
+  width: 12%;
+  background-color: white;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+#tabFaviconHolder img {
+  width: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}

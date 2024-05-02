@@ -1,3 +1,4 @@
+
 window.tHs = new ThemeSystem();
 
 var darkTheme = new Theme(document.getElementById("default-theme"), "Moon"); // I do not have programming ineptitude, it's just that this works and I don't really care to change it from the older version of the theme system.
@@ -46,26 +47,7 @@ function adChange(parse) {
 }
   )
 }
-switch (chosenAdState) {
-case "adchangeon":
-  document
-    .getElementById("settings-temp")
-    .querySelector(".adchangeon")
-    .classList.add("active");
-  break;
-case "adchangeoff":
-  document
-    .getElementById("settings-temp")
-    .querySelector(".adchangeoff")
-    .classList.add("active");
-  break;
-default:
-  document
-    .getElementById("settings-temp")
-    .querySelector(".adchangeon")
-    .classList.add("active");
-  break;
-}
+
 
 var autoLaunchCookie = localStorage.getItem("autolaunch") || "off";
 
@@ -112,26 +94,7 @@ function setBackend(backend) {
   });
 }
 
-switch (chosenBackend) {
-  case "uv":
-    document
-      .getElementById("settings-temp")
-      .querySelector(".uv")
-      .classList.add("active");
-    break;
-  case "dynamic":
-    document
-      .getElementById("settings-temp")
-      .querySelector(".dynamic")
-      .classList.add("active");
-    break;
-  default:
-    document
-      .getElementById("settings-temp")
-      .querySelector(".uv")
-      .classList.add("active");
-    break;
-}
+
 
 var engineSelected = localStorage.getItem("engine") || "Google";
 var currentSearchURL = "https://www.google.com/search?q="
@@ -250,8 +213,10 @@ document.getElementById("adrbar").addEventListener("focus", function () {
 document.getElementById("adrbar").addEventListener("blur", function () {
   setTimeout(function() {
     suggestionsList.style.display = 'none';
-    searchInput.style.borderBottomLeftRadius = "12px";
-    searchInput.style.borderBottomRightRadius = "12px";
+    searchInput.style.borderBottomLeftRadius = "38px";
+    searchInput.style.borderBottomRightRadius = "38px";
+    searchInput.style.borderTopLeftRadius = "38px";
+    searchInput.style.borderTopRightRadius = "38px";
   }, 300); // unnoticeable delay, just so that the form handles clicks before it dissapears
 });
 
@@ -259,8 +224,10 @@ setInterval(() => {
   if (suggestionsList.querySelector('div') && suggestionsList.style.display == 'flex') {
     searchInput.style.borderBottomLeftRadius = "0px";
     searchInput.style.borderBottomRightRadius = "0px";
+    searchInput.style.borderTopLeftRadius = "19px";
+    searchInput.style.borderTopRightRadius = "19px";
   }
-}, 300);
+}, 100);
 searchInput.addEventListener('input', function() {
   const query = searchInput.value.trim(); // Use searchInput directly
   if (query === '') {
@@ -319,9 +286,9 @@ const recordKeys = (elem, timeLimit) => {
       }, timeLimit);
     }
     savePush.push(e.key);
-    elem.placeholder = "Selected: " + savePush.join(" + ");
+    elem.placeholder = "selected: " + savePush.join(" + ");
     document.querySelectorAll(".panic").forEach((e) => {
-      e.placeholder = "Selected: " + savePush.join(" + ");
+      e.placeholder = "selected: " + savePush.join(" + ");
     });
   };
   document.addEventListener("keydown", keydownHandler);
@@ -389,7 +356,7 @@ window.panicKeys = JSON.parse(localStorage.getItem("panicKeys"));
 
 if (window.panicKeys !== null) {
   document.getElementById("settings-temp").querySelector(".panic").placeholder =
-    "Selected: " + window.panicKeys.join(" + ");
+    "selected: " + window.panicKeys.join(" + ");
 }
 if (window.panicURL !== null) {
   document.getElementById("settings-temp").querySelector(".panicURL").value =
@@ -471,9 +438,8 @@ const openNewtab = () => {
 
 
 const runService = async (url, override, overrideadrbar) => {
-  console.log(url);
   if (url.trim() == "") return;
-  if (ts.getActiveTab() == null || url == "abyss://settings" || url == "abyss:settings") {
+  if (ts.getActiveTab() == null || url == "abyss://settings" || url == "abyss:settings" || url == "abyss:apps" || url== "abyss://apps") {
     openNewtab();
   }
   const activeTab = ts.getActiveTab();
@@ -513,11 +479,30 @@ const runService = async (url, override, overrideadrbar) => {
             "New Tab";
           document.getElementById("adrbar").placeholder = defaultPlaceholder;
           return;
-        case "games":
-          runService("https://radon.games/");
-          return;
+        case "apps":
+          const appsPlaceholder = "abyss apps (abyss://apps)";
+          if (tabElement.querySelectorAll(".extFrame").length > 0) {
+            tabElement.querySelectorAll(".extFrame").forEach((frame) => {
+              frame.remove();
+            });
+          }
+          const appsTemplate = document
+          .getElementById("apps-temp")
+            .cloneNode(true);
+            if (appsTemplate instanceof HTMLDivElement) {
+              appsTemplate.id = "";
+              appsTemplate.style.display = "initial";
+              tabElement.appendChild(appsTemplate);
+              activeTab.getConnectedElement().querySelector("span").innerText =
+                "Apps";
+              document.getElementById("adrbar").placeholder = appsPlaceholder;
+              activeTab.getConnectedElement().querySelector("#tabFavicon").src = "assets/game.png"
+            }
+            setTimeout(initApps, 1);
+            setTimeout(initAppSearch, 1);
+        return;
         case "settings":
-          const settingsPlaceholder = "Abyss Settings (abyss://settings)";
+          const settingsPlaceholder = "abyss settings (abyss://settings)";
           if (tabElement.querySelectorAll(".extFrame").length > 0) {
             tabElement.querySelectorAll(".extFrame").forEach((frame) => {
               frame.remove();
@@ -536,15 +521,9 @@ const runService = async (url, override, overrideadrbar) => {
               .querySelector("#themeSelect")
               .removeAttribute("id");
             tabElement.appendChild(settingsTemplate);
-            settingsTemplate.querySelectorAll(".uv, .dyn").forEach((e) => {
-              e.classList.remove("active");
-            });
-            settingsTemplate
-              .querySelector("." + chosenBackend)
-              .classList.add("active");
             if (window.panicKeys !== null) {
               settingsTemplate.querySelector(".panic").placeholder =
-                "Selected: " + window.panicKeys.join(" + ");
+                "selected: " + window.panicKeys.join(" + ");
             }
             settingsTemplate.querySelector(".panicURL").value = window.panicURL;
             settingsTemplate.querySelector(".tabTitle").placeholder =
@@ -666,7 +645,7 @@ setInterval(() => {
   if (getTabTitle() == "http:") return;
   activeTab.getConnectedElement().querySelector("span").innerText =
     getTabTitle() || "Website";
-  if (localStorage.getItem("backend") == 'uv' ||  localStorage.getItem("backend") == null ) {
+  try {if (localStorage.getItem("backend") == 'uv' ||  localStorage.getItem("backend") == null ) {
     var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/math/") + "/classes/math/".length);
     document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
     activeTab.getConnectedElement().querySelector("#tabFavicon").src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + decodeUrl(extractedPart) + "&size=128";
@@ -674,7 +653,8 @@ setInterval(() => {
     var extractedPart = activeTab.findFirstIFrame().contentDocument.location.href.substring(activeTab.findFirstIFrame().contentDocument.location.href.indexOf("/classes/english/") + "/classes/english/".length);
     document.querySelector("#adrbar").placeholder = decodeUrl(extractedPart);
     activeTab.getConnectedElement().querySelector("#tabFavicon").src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + decodeUrl(extractedPart) + "&size=128";
-  }
+  }} catch (e) {}
+  
   }, 100);
 
 
@@ -684,7 +664,7 @@ const ts = new TabSystem({
   btnTemplate: document.querySelector("#tabBtnTemplate"),
   tabBtnContainer: document.querySelector("#tabsBar"),
   URLBar: document.querySelector("#adrbar"),
-  defaultPlaceholder: "Search away!",
+  defaultPlaceholder: "type here to search...",
   closePlaceholder: "No tabs open, click the plus icon to open a new tab.",
 });
 
@@ -1045,4 +1025,170 @@ if (!inFrame && localStorage.getItem("autolaunch") === 'on' && !navigator.userAg
     `
     doc.head.appendChild(script)
   }
+}
+
+function initApps() {
+  
+  // Destroy all elements inside of #apps-temp .settingCards
+  var settingCards = ts.activeTab.getTabElement().querySelector('#appsOrganizer');
+  settingCards.innerHTML = '';
+  // If the parameter is "choose...", then break the function
+  
+  // Fetch apps.json and filter based on the category
+  fetch('assets/apps.json')
+      .then(response => response.json())
+      .then(data => {
+          // Sort apps alphabetically by title
+          data.sort((a, b) => a.name.localeCompare(b.name));
+          
+          // Iterate through sorted data and create app cards
+          data.forEach(app => {
+              // Create a new app card element
+              var appCard = document.createElement('div');
+              appCard.className = 'appCard'; // Add class based on category
+
+              // Add onclick event to the app card
+              appCard.onclick = function() {
+                  runService(app.url);
+              };
+
+              // Create app image container
+              var appImgContainer = document.createElement('div');
+              appImgContainer.id = 'appImgContainer';
+              appImgContainer.className = app.category;
+              var appImg = document.createElement('img');
+              appImg.src = app.image;
+              appImgContainer.appendChild(appImg);
+
+              // Create app title container
+              var appTitleContainer = document.createElement('div');
+              appTitleContainer.id = 'appTitleContainer';
+              var appTitle = document.createElement('p');
+              appTitle.id = 'appTitle';
+              appTitle.textContent = app.name;
+              appTitleContainer.appendChild(appTitle);
+
+              // Append image and title containers to the app card
+              appCard.appendChild(appImgContainer);
+              appCard.appendChild(appTitleContainer);
+
+              // Append the app card to the settingCards container
+              settingCards.appendChild(appCard);
+          });
+      });
+}
+
+function filterCategory(category) {
+  // Destroy all elements inside of #apps-temp .settingCards
+  ts.activeTab.getTabElement().querySelector('#appsOrganizer').innerHTML = '';
+
+  // If the parameter is "choose...", then break the function
+  if (category === "choose...") return;
+
+  fetch('assets/apps.json')
+      .then(response => response.json())
+      .then(data => {
+          // Sort the data alphabetically by app name
+          data.sort((a, b) => a.name.localeCompare(b.name));
+
+          // Loop through each app in the sorted JSON data
+          data.forEach(app => {
+              // Check if the app's category matches the desired category
+              if (app.category.includes(category) || category === 'all') {
+                  // Create a new app card element
+                  var appCard = document.createElement('div');
+                  appCard.className = 'appCard'; // Add class based on category
+
+                  // Add onclick event to the app card
+                  appCard.onclick = function () {
+                      runService(app.url);
+                  };
+
+                  // Create app image container
+                  var appImgContainer = document.createElement('div');
+                  appImgContainer.id = 'appImgContainer';
+                  appImgContainer.className = app.category;
+                  var appImg = document.createElement('img');
+                  appImg.src = app.image;
+                  appImgContainer.appendChild(appImg);
+
+                  // Create app title container
+                  var appTitleContainer = document.createElement('div');
+                  appTitleContainer.id = 'appTitleContainer';
+                  var appTitle = document.createElement('p');
+                  appTitle.id = 'appTitle';
+                  appTitle.textContent = app.name;
+                  appTitleContainer.appendChild(appTitle);
+
+                  // Append image and title containers to the app card
+                  appCard.appendChild(appImgContainer);
+                  appCard.appendChild(appTitleContainer);
+
+                  // Append the app card to the settingCards container
+                  ts.activeTab.getTabElement().querySelector('#appsOrganizer').appendChild(appCard);
+              }
+          });
+      });
+}
+function filterAppByName(name) {
+  if (!name) {
+    ts.activeTab.getTabElement().querySelector('#appsOrganizer').innerHTML = ''; 
+    initApps();
+    return;}
+  // Destroy all elements inside of #apps-temp .settingCards
+  ts.activeTab.getTabElement().querySelector('#appsOrganizer').innerHTML = '';
+
+  // If the parameter is empty or null, break the function
+  if (name)
+  fetch('assets/apps.json')
+      .then(response => response.json())
+      .then(data => {
+          // Sort the data alphabetically by app name
+          data.sort((a, b) => a.name.localeCompare(b.name));
+
+          // Loop through each app in the sorted JSON data
+          data.forEach(app => {
+              // Check if the app's name contains the desired name
+              if (app.name.toLowerCase().includes(name.toLowerCase())) {
+                  // Create a new app card element
+                  var appCard = document.createElement('div');
+                  appCard.className = 'appCard'; // Add class based on category
+
+                  // Add onclick event to the app card
+                  appCard.onclick = function () {
+                      runService(app.url);
+                  };
+
+                  // Create app image container
+                  var appImgContainer = document.createElement('div');
+                  appImgContainer.id = 'appImgContainer';
+                  appImgContainer.className = app.category;
+                  var appImg = document.createElement('img');
+                  appImg.src = app.image;
+                  appImgContainer.appendChild(appImg);
+
+                  // Create app title container
+                  var appTitleContainer = document.createElement('div');
+                  appTitleContainer.id = 'appTitleContainer';
+                  var appTitle = document.createElement('p');
+                  appTitle.id = 'appTitle';
+                  appTitle.textContent = app.name;
+                  appTitleContainer.appendChild(appTitle);
+
+                  // Append image and title containers to the app card
+                  appCard.appendChild(appImgContainer);
+                  appCard.appendChild(appTitleContainer);
+
+                  // Append the app card to the settingCards container
+                  ts.activeTab.getTabElement().querySelector('#appsOrganizer').appendChild(appCard);
+              }
+          });
+      });
+}
+
+function initAppSearch() {
+var categorySearchInput = ts.activeTab.getTabElement().querySelector('#categorySearch');
+  categorySearchInput.addEventListener('input', function() {
+      filterAppByName(categorySearchInput.value);
+  });
 }

@@ -1,9 +1,9 @@
 :root,
 * {
   font-family: "Inter", sans-serif;
-  --inactive-elem: #2e2e2e;
+  --highlight-color: #FFF;
+  --background-color: #000;
   --active-elem: #636363;
-  --background: url("/assets/black.png");
   --color: #fefefe;
   --img-filter: invert(0);
   --ext-frame-bg: #272727e0;
@@ -19,7 +19,7 @@ html {
   padding: 0;
   font-family: "Inter", sans-serif;
   color: var(--color);
-  background-image: var(--background);
+  background-color: var(--background-color);
   background-size: cover;
   resize: none;
 }
@@ -37,14 +37,13 @@ html {
 
 #headerArea {
   overflow: visible;
-  width: 89%;
-  background: #46464675;
+  width: 100%;
+  border-bottom: 2px solid white;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  border-radius: 0 0 12px 12px;
   height: 125px;
 }
 
@@ -81,14 +80,14 @@ html {
 }
 
 .tabFrame {
-  background: var(--inactive-elem);
+  background: var(--background-color);
 }
 
 #tabsBar {
   position: relative;
   top: -35px;
   width: calc(100% - 145px);
-  left: 110px;
+  left: 95px;
   height: 45px;
   overflow: hidden;
   overflow-x: scroll;
@@ -97,19 +96,19 @@ html {
   margin-left: 16px;
   white-space: nowrap;
   user-select: none;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 #leftTopBtns {
   position: relative;
   top: 10px;
-  left: 15px;
+  left: 7px;
   width: 95px;
   height: 45px;
   overflow: hidden;
   white-space: nowrap;
   user-select: none;
-  background: var(--inactive-elem);
+  background: var(--background-color);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -125,9 +124,8 @@ html {
   border: none;
   cursor: pointer;
   transition: 0.2s;
+
 }
-
-
 
 #tabsBar::-webkit-scrollbar {
   display: none;
@@ -139,35 +137,31 @@ html {
   text-align: left;
   outline: none;
   border: none;
-  background: var(--inactive-elem);
+  background: var(--background-color);
   color: var(--color);
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 10px;
   display: inline-block;
   margin-right: 16px;
   transition: 0.2s;
   top: 0;
   position: relative;
   overflow: hidden;
+  border: 2px solid white;
 }
 
 .tabBtn:hover {
-  background: var(--active-elem) !important;
+  background: var(--background-color) !important;
+  color: #fff;
 }
 
 .op-tabs-active,
 .active {
-  background: var(--active-elem) !important;
+  background: var(--highlight-color) !important;
+  color: #000;
 }
 
 #autofill-results {
-  position: absolute;
-}
-
-#tabFavicon {
-  left: 10px;
-  top: 7px;
-  height: 70%;
   position: absolute;
 }
 
@@ -177,11 +171,12 @@ html {
   display: inline-block;
   width: 150px;
   position: relative;
-  top: 14px;
+  top: 12px;
   transform: translateY(-50%);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Roboto", sans-serif;
 }
 
 .tabBtn .tabClose {
@@ -201,7 +196,7 @@ html {
   width: 83vw;
   height: 90%;
   position: relative;
-  top: 50%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
@@ -225,16 +220,18 @@ html {
 }
 
 .imageContain div h1 {
-  font-size: 45px;
-  font-weight: 600;
-  line-height: 0.2;
+  font-size: 65px;
+  font-weight: 700;
   position: relative;
+  left: 10%;
+  height: 35px;
 }
 
 .imageContain div p {
-  font-size: 30px;
+  font-size: 25px;
   position: relative;
   font-weight: 500;
+  height: 18px;
 }
 
 #toolsBar {
@@ -280,20 +277,38 @@ html {
 
 #adrbar {
   width: 100%;
-  height: 50px;
-  background: var(--inactive-elem);
-  border-radius: 12px;
-  font-size: 24px;
+  height: 42px;
+  background: var(--background-color);
+  border-radius: 38px;
+  font-size: 20px;
   color: var(--color);
-  outline: none;
-  border: none;
   padding-left: 20px;
   position: relative;
-  font-style: italic;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid white;
+}
+#adrbar2 {
+  width: 75%;
+  height: 42px;
+  left: 5%;
+  background: var(--background-color);
+  border-radius: 38px;
+  padding-left: 30px;
+  font-size: 16px;
+  color: var(--color);
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid white;
+  transition: border-radius 0.3s;
+}
+
+#adrbar2:focus {
+  border-radius: 17px;
+
 }
 #rightBtnGroup {
   position: relative;
-  left: 20px;
+  left: 15px;
 }
 
 #rightToolGroup {
@@ -334,7 +349,7 @@ html {
 #panicBtn {
   width: 56px;
   height: 56px;
-  background: var(--inactive-elem);
+  background: var(--background-color);
   border-radius: 0 12px 12px 0;
   font-size: 24px;
   color: var(--color);
@@ -345,15 +360,20 @@ html {
 }
 
 #panicBtn:hover {
-  background: var(--active-elem);
+  background: var(--background-color);
 }
 
 #searchBar {
-  margin-left: 20px;
-  width: calc(100% - 347px);
+  margin-left: 15px;
+  width: calc(100% - 382px);
   display: flex;
 }
-
+#adrbar::placeholder {
+  color: #fff;
+}
+#adrbar2::placeholder {
+  color: #fff;
+}
 #tabContainer {
   position: fixed;
   z-index: 10;
@@ -369,47 +389,121 @@ html {
 }
 
 .abyssCard {
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 550px;
   min-width: 30px;
   padding: 20px;
-  background: var(--inactive-elem);
-  border-radius: 12px;
-  text-align: center;
-  display: inline-block;
-  margin-bottom: 20px;
+  background: var(--background-color);
+  border-radius: 17px;
+  border: 2px solid white;
+}
+#appImgContainer {
+  display: flex;
+  position: absolute;
+  width: 290px;
+  height: 240px;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  overflow: hidden;
+  display: flex;
+  position: absolute;
+  margin: -20px 0 0 -20px;
+}
+#appImgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#appTitleContainer {
+  display: flex;
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  margin: 220px 0 0 -15px;
+  font-weight: 700;
+  font-size: 30px;
+  width: 280px;
+  height: 140px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#appTitle {
+  position: absolute;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+}
+.appCard {
+  height: 300px;
+  width: 250px;
+  min-width: 30px;
+  padding: 20px;
+  background: var(--background-color);
+  border-radius: 17px;
+  border: 2px solid white;
+}
+#settingContainer h2 {
+  margin: -40px 0 0 0;
+  font-family: 'Roboto', sans-serif;
+  
 }
 
-.abyssCard input,
-.abyssCard select,
-.abyssCard button {
-  width: 280px;
-  height: 56px;
-  background: var(--ext-frame-bg);
-  border-radius: 12px;
+
+.settingContainer button:hover {
+  cursor: pointer;
+}
+
+#autoLaunchDiv {
+  height: 20%;
+  width: 20%;
+  
+}
+
+#settingContainer {
+  position: absolute;
+  width: 210px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#settingContainer button, #settingContainer input, #settingContainer select {
+  top: 50px;
+  width: 210px;
+  height: 40px;
+  background: var(--background-color);
+  border-radius: 38px;
   outline: none;
-  border: none;
-  font-size: 24px;
+  border: 2px solid white;
+  font-size: 20px;
   color: var(--color);
   transition: 0.2s;
+  padding: 0 5px;
+  font-family: 'Roboto', sans-serif; font-weight: 700;
+  position: absolute;
+  left: 0px;
   text-align: center;
-  padding: 0 10px;
 }
 
-.abyssCard button:hover {
-  cursor: pointer;
-  background: var(--active-elem);
+#settingContainer input::placeholder {
+  color: #FFF;
 }
 
 .abyssCard h1 {
+  position: absolute;
+  font-family: "Inter", sans-serif;
   font-size: 28px;
-  font-weight: 400;
-  margin-top: 30px;
+  font-weight: 700;
+  margin-top: 0px;
   white-space: nowrap;
-  padding-left: 20px;
-  padding-right: 20px;
   line-height: 0.7;
-  font-size: 32px;
+  font-size: 27px;
 }
 
 .settingCards {
@@ -423,11 +517,49 @@ html {
   overflow-y: auto;
 }
 
+#categorySelect {
+  position: absolute;
+  width: 200px;
+  height: 45px;
+  background-color: var(--background-color);
+  border-radius: 38px;
+  border: 2px solid white;
+  left: 50%;
+  transform: translateX(10%);
+  top: 157px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+#categorySearch {
+  position: absolute;
+  width: 200px;
+  height: 45px;
+  background-color: var(--background-color);
+  border-radius: 38px;
+  border: 2px solid white;
+  left: 50%;
+  transform: translateX(-110%);
+  top: 155px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+#categorySearch::placeholder {
+  color: #fff;
+}
 .settingsHeader {
+  font-size: 74px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+.appsHeader {
   font-size: 64px;
   font-weight: 400;
 }
-
 .extFrame {
   overflow: auto;
 }
@@ -450,7 +582,8 @@ iframe {
 }
 
 #suggestions div {
-  background: var(--inactive-elem);
+  background: var(--background-color);
+  border: 1px solid white;
   padding-left: 20px;
   color: white;
   height: 25px;
@@ -460,5 +593,24 @@ iframe {
 }
 
 #suggestions div:hover {
-  background: var(--active-elem);
+  background: #fff;
+  color: #000;
+}
+#tabFaviconHolder {
+  left: 10px;
+  top: 7px;
+  height: 70%;
+  position: absolute;
+  width: 12%;
+  background-color: white;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+#tabFaviconHolder img {
+  width: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }

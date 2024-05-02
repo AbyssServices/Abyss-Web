@@ -1,26 +1,22 @@
 [
     {
-        "name": "Sun",
-        "url": "/assets/themes/sun.css"
+        "name": "grey",
+        "url": "/assets/themes/grey.css"
     },
     {
-        "name": "Blue",
-        "url": "/assets/themes/blue-moon.css"
+        "name": "mocha",
+        "url": "/assets/themes/mocha.css"
     },
     {
-        "name": "Red",
-        "url": "/assets/themes/blood-moon.css"
+        "name": "macchiato",
+        "url": "/assets/themes/macchiato.css"
     },
     {
-        "name": "Green",
-        "url": "/assets/themes/green.css"
+        "name": "frappe",
+        "url": "/assets/themes/frappe.css"
     },
     {
-        "name": "Orange",
-        "url": "/assets/themes/orange.css"
-    },
-    {
-        "name": "Purple",
-        "url": "/assets/themes/purple.css"
+        "name": "cappuccino",
+        "url": "/assets/themes/cappuccino.css"
     }
 ]
