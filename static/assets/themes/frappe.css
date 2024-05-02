@@ -299,7 +299,7 @@ html {
   left: 5%;
   background: var(--background-color);
   border-radius: 38px;
-  padding-left: 30px;
+  padding:  0 20px 0 20px;
   font-size: 16px;
   color: var(--color);
   position: relative;
@@ -308,8 +308,8 @@ html {
   transition: border-radius 0.3s;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
+  text-align: center;
 }
-
 #adrbar2:focus {
   border-radius: 17px;
 
