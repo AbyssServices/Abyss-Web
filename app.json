@@ -1,9 +1,7 @@
 {
-  "name": "Abyss-Web",
-  "scripts": {
-    "postdeploy": "npm install && npm start"
-  },
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "name": "edu",
+  "description": "?",
+  "repository": "https://github.com/AbyssServices/Abyss-Web",
+  "keywords": ["school", "math"],
+  "image": "heroku/nodejs"
 }
