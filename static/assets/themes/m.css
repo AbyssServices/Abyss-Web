@@ -3,3 +3,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 #particles-js{ position:absolute; width: 100%; height: 99.7%; background-color: var(--background-color); background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } 
+
+#particles-js h1 {
+    font-size: 64px;
+}
