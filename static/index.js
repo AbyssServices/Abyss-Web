@@ -456,6 +456,7 @@ let splashtext = [
   "thanks for using the site!",
   "check out the settings page",
   "check out the games page",
+  "check out the settings to hide from your teacher",
 ]
 
 const runService = async (url, override, overrideadrbar) => {
