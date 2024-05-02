@@ -683,6 +683,15 @@ document.getElementById("adrbar").addEventListener("keydown", function (e) {
   }
 });
 
+document.getElementById("adrbar2").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    if (document.getElementById("adrbar2").value === "") return;
+    runService(document.getElementById("adrbar2").value);
+    document.getElementById("adrbar2").value;
+  }
+});
+
 let tb = document.getElementById("tabsBar");
 if (tb) {
   tb.addEventListener(
