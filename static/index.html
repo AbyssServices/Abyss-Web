@@ -30,10 +30,13 @@
     <script src="themesys.js"></script>
     <script src="class/uv.bundle.js" defer></script>
     <script src="class/uv.config.js" defer></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
     <script src="index.js" defer></script>
   </head>
 
   <body style="background: black">
+    <div id="particles-js">
     <!-- to avoid users getting flashbanged entering the site and having a theme be loaded -->
     <div id="headerArea">
       <div id="leftTopBtns">
@@ -135,7 +138,6 @@
           overflow-y: auto;
           position: relative;
           top: 0px;
-          background: var(--background-color);
         "
       >
       <center>
@@ -164,7 +166,6 @@
           overflow-y: auto;
           position: relative;
           top: 0px;
-          background: var(--background-color);
         "
       >
         <center>
@@ -237,7 +238,7 @@
             <div class="abyssCard">
               <h1>theme</h1>
               
-              <div id="settingContainer" style="margin: 95px 0 0 165px;">
+              <div id="settingContainer" style="margin: 95px 0 0 30px;">
                 <h2>theme</h2>
                 <select
                   id="themeSelect"
@@ -245,6 +246,16 @@
                   class="theme"
                 >
                   <option value="Moon">black</option>
+                </select>
+              </div>
+              <div id="settingContainer" style="margin: 95px 0 0 310px;">
+                <h2>particles</h2>
+                <select
+                  onchange="particleSelect(this.value)"
+                >
+                <option value="choose...">choose...</option>
+                  <option value="on">on</option>
+                  <option value="off">off</option>
                 </select>
               </div>
             </div>
@@ -368,5 +379,6 @@
       <span class="tabTitle">New Tab</span>
       <span class="tabClose" onclick="window.tryClose=true">+</span>
     </button>
+  </div>
   </body>
 </html>

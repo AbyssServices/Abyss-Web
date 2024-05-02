@@ -24,8 +24,20 @@ function prependHttps(url) {
   }
   return url;
 }
+var chosenParticleState = localStorage.getItem("particleState") || "on";
+if (chosenParticleState === "on") {
+  var script = document.createElement('script');
+  script.src = 'particles.js';
+  script.defer = true;
+  document.head.appendChild(script);
+} 
 
+function particleSelect(param) {
+  if (param == 'choose...') {return;}
+  localStorage.setItem("particleState", param);
+  chosenAdState = param;
 
+}
 
 var chosenAdState = localStorage.getItem("adState") || "adchangeon";
 
@@ -1201,3 +1213,4 @@ var categorySearchInput = ts.activeTab.getTabElement().querySelector('#categoryS
       filterAppByName(categorySearchInput.value);
   });
 }
+
