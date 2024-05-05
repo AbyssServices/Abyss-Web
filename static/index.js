@@ -1238,3 +1238,35 @@ var categorySearchInput = ts.activeTab.getTabElement().querySelector('#categoryS
   });
 }
 
+function handleTargets() {
+  // Get the active tab
+  const activeTab = ts.getActiveTab();
+  
+  // Find the first iframe in the active tab
+  const iframe = activeTab.findFirstIFrame();
+  
+  // Get the content document of the iframe
+  const contentDocument = iframe.contentDocument;
+  
+  // Find all elements with target="_top" or target="_blank"
+  const elements = contentDocument.querySelectorAll('[target="_top"], [target="_blank"]');
+  
+  // Loop through each element
+  elements.forEach(element => {
+      // Check if target="_top"
+      if (element.getAttribute('target') === '_top') {
+          // Remove the entire attribute
+          element.removeAttribute('target');
+      } else if (element.getAttribute('target') === '_blank') {
+        const href = element.getAttribute('href');
+        element.removeAttribute('target');
+        element.setAttribute('onclick', `runService(${href}, true)`);
+      }
+  });
+}
+setInterval(() => {
+  if (ts.getActiveTab().findFirstIFrame()) {
+    handleTargets();
+    }
+    
+}, 1000);
