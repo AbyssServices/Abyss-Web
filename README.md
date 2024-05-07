@@ -41,7 +41,7 @@ You must run these commands on your server:
 `git pull --force --allow-unrelated-histories`
 
 <a target="_blank" href="https://heroku.com/deploy/?template=https://github.com/AbyssServices/Abyss-Web"><img alt="Deploy to Heroku" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/heroku.svg"></a>
-<a target="_blank" href="https://app.koyeb.com/deploy?type=git&repository=github.com/AbyssServices/Abyss-Web"><img alt="Deploy to Koyeb" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/vercel.svg"></a>
+<a target="_blank" href="https://vercel.com/new/clone?repository-url=https://github.com/AbyssServices/Abyss-Web"><img alt="Deploy to Vercel" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/vercel.svg"></a>
 
 #### What happened to Replit Deployment?
 
