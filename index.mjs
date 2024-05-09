@@ -34,6 +34,10 @@ app.use((req, res) => {
 
 const server = http.createServer();
 
+server.on('error', (err) => {
+  console.error(`ERROR: ${err}`);
+});
+
 server.on("request", (req, res) => {
   if (bare.shouldRoute(req)) {
     bare.routeRequest(req, res);
