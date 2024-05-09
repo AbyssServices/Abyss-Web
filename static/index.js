@@ -463,6 +463,7 @@ let splashtext = [
   "check out the games page",
   "check out the settings to hide from your teacher",
   "need ChatGPT? search for it on the games page!",
+  "shoutout owen, ramsey, and levi",
 ]
 
 const runService = async (url, override, overrideadrbar) => {
