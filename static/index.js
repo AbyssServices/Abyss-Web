@@ -700,6 +700,14 @@ const ts = new TabSystem({
 const createNewTab = () => {
   ts.setActiveTab(ts.addTab(new Tab()));
   ts.activeTab.getTabElement().querySelector("#quote").innerText = splashtext[Math.floor(Math.random() * splashtext.length)];
+  ts.activeTab.getTabElement().querySelector('#adrbar2').addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (ts.activeTab.getTabElement().querySelector('#adrbar2').value === "") return;
+      runService(ts.activeTab.getTabElement().querySelector('#adrbar2').value);
+      ts.activeTab.getTabElement().querySelector('#adrbar2').value;
+    }
+  });
 };
 
 createNewTab();
@@ -713,14 +721,7 @@ document.getElementById("adrbar").addEventListener("keydown", function (e) {
   }
 });
 
-document.getElementById("adrbar2").addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    if (document.getElementById("adrbar2").value === "") return;
-    runService(document.getElementById("adrbar2").value);
-    document.getElementById("adrbar2").value;
-  }
-});
+
 
 let tb = document.getElementById("tabsBar");
 if (tb) {
