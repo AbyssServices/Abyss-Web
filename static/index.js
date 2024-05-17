@@ -55,7 +55,7 @@ if (chosenAdState === "adchangeon") {
   document.head.appendChild(script);
   var script2 = document.createElement('script');
   script2.type = 'text/javascript';
-  script2.innerHTML = `//pl22666849.highcpmgate.com/69/97/b0/6997b06c3efe2aad903c33475f61b2a6.js`
+  script2.src = `//pl22666849.highcpmgate.com/69/97/b0/6997b06c3efe2aad903c33475f61b2a6.js`
   document.head.appendChild(script2);
 } 
 
