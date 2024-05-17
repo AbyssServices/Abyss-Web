@@ -51,15 +51,12 @@ var chosenAdState = localStorage.getItem("adState") || "adchangeon";
 if (chosenAdState === "adchangeon") {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.async = 'async';
-  script.src = '//thubanoa.com/1?z=7482778';
+  script.src = '//pl22667078.highcpmgate.com/ed/d6/27/edd627939d21229c8335c92b2a743aa7.js';
   document.head.appendChild(script);
   var script2 = document.createElement('script');
-  script2.innerHTML = `(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('osspalkiaom.com',7482795,document.createElement('script'))`
+  script2.type = 'text/javascript';
+  script2.innerHTML = `//pl22666849.highcpmgate.com/69/97/b0/6997b06c3efe2aad903c33475f61b2a6.js`
   document.head.appendChild(script2);
-  var script3 = document.createElement('script');
-  script3.innerHTML = `(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7482785,document.createElement('script')`
-  document.head.appendChild(script3);
 } 
 
 function adChange(parse) {
