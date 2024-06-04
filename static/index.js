@@ -53,10 +53,6 @@ if (chosenAdState === "adchangeon") {
   script.type = 'text/javascript';
   script.src = '//pl22667078.highcpmgate.com/ed/d6/27/edd627939d21229c8335c92b2a743aa7.js';
   document.head.appendChild(script);
-  var script2 = document.createElement('script');
-  script2.type = 'text/javascript';
-  script2.src = `//pl22666849.highcpmgate.com/69/97/b0/6997b06c3efe2aad903c33475f61b2a6.js`
-  document.head.appendChild(script2);
 } 
 
 function adChange(parse) {
