@@ -13,6 +13,7 @@
 ## Features
 
 - About:Blank Cloaking
+- https://google.com/
 - Tab Cloaking
 - Wide collection of apps & games
 - Clean, Easy to use UI
